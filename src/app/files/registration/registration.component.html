@@ -1,0 +1,83 @@
+<div class="container registration_background">
+	<div class="registration-box animated fadeInUp">
+		<div class="box-header">
+			<h2>Registration</h2>
+		</div>
+		<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid}">
+				<label for="userName">username</label> <br /> <input type="text"
+					name="userName" [(ngModel)]="model.userName" #userName="ngModel"
+					required>
+				<div *ngIf="f.submitted && !userName.valid" class="help-block">User
+					Name is required</div>
+			</div>
+
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="firstname">firstname</label> <br /> <input type="text"
+					name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"
+					required>
+				<div *ngIf="f.submitted && !firstName.valid" class="help-block">First
+					Name is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="middleName">middlename</label> <br /> <input
+					type="text" name="middleName" [(ngModel)]="model.middleName"
+					#middleName="ngModel" required>
+				<div *ngIf="f.submitted && !middleName.valid" class="help-block">Middle
+					Name is required</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="lastname">lastname</label> <br /> <input type="text"
+					name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"
+					required>
+				<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last
+					Name is required</div>
+			</div>
+			
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="email">email</label> <br /> <input type="text"
+					name="email" [(ngModel)]="model.email" #email="ngModel"
+					required>
+				<div *ngIf="f.submitted && !email.valid" class="help-block">email is required</div>
+			</div>
+			
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="password">Password</label> <br /> <input
+					type="password" name="password" [(ngModel)]="model.password"
+					#password="ngModel" required>
+				<div *ngIf="f.submitted && !password.valid" class="help-block">Password
+					is required</div>
+			</div>
+
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="birthDate">Birthdate</label> <br /> 
+			<input type="date" name="birthDate" [(ngModel)]="model.birthDate"
+					#birthDate="ngModel" required>
+			<div *ngIf="f.submitted && !birthDate.valid" class="help-block">Birthdate
+					is required</div>
+			</div>
+			
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+				<label for="birthDate">Gender</label> <br /> 
+			Male<input type="radio" name="gender" [(ngModel)]="model.gender"
+					#male="ngModel" [value]="male" (change)="onSelectionChange('male')">
+			Female<input type="radio" name="gender" [(ngModel)]="model.gender"
+					#female="ngModel" [value]="female" (change)="onSelectionChange('female')">
+			</div>
+			
+			<label for="profilePic">profile
+				Picture</label> <br /> <img class="image" [src]="url"> <input
+				id="profilePic" type='file' (change)="readUrl($event)"> <br />
+			<button type="submit">Sign Up</button>
+			<br />
+		</form>
+	</div>
+</div>

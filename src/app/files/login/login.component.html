@@ -1,0 +1,51 @@
+<div class="container login_background">
+	<div class="top">
+		<h1 id="title" class="hidden">
+			<span id="logo">Daily <span>UI</span></span>
+		</h1>
+	</div>
+	<div class="login-box animated fadeInUp">
+		<div class="box-header">
+			<h2>Log In</h2>
+		</div>
+		<form (ngSubmit)="f.form.valid && onLogin()" #f="ngForm" novalidate>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted}">
+		<label for="userName">Username</label> 
+		<input type="text" name="userName" [(ngModel)]="model.userName" #userName="ngModel" required="required"> 
+		<div *ngIf="f.submitted && !userName.valid" class="help-block">User
+					Name is required</div>
+		</div>
+		<br/> 
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+		<label for="password">Password</label>
+		<input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required="required"> 
+		<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+		</div>
+		<br/>
+		<button type="submit">Sign In</button>
+		<br/> 
+		<a href="#"><p class="small">Forgot your password?</p></a> 
+		<br/>
+		<a routerLink="/registration">Sign Up</a>
+		</form>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
