@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppComponent } from '../../../app.component';
 import { Router } from '@angular/router';
 import { AppSettings } from '../../app.settings';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Component({
     selector: 'userdashboard',
@@ -13,5 +14,6 @@ export class UserDashBoardComponent {
     
     constructor(private appComponent: AppComponent,private router: Router){
       //alert(localStorage.getItem(AppSettings.AUTH_TOKEN_KEY))
+      let myCookie = Cookie.get('token');
     }
   }

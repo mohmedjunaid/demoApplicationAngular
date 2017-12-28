@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { AppSettings } from '../files/app.settings';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -8,12 +9,14 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router) { }
 
     canActivate() {
-        if (localStorage.getItem(AppSettings.AUTH_TOKEN_KEY)) {
+        //if (localStorage.getItem(AppSettings.AUTH_TOKEN_KEY)) {
             // logged in so return true
+          //  return true;
+        //}
+        let myCookie = Cookie.get(AppSettings.AUTH_TOKEN_KEY);
+        if(myCookie){
             return true;
         }
-
-        // not logged in so redirect to login page
         this.router.navigate(['/login']);
         return false;
     }

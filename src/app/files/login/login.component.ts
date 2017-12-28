@@ -4,6 +4,7 @@ import { LoginService } from './login.service';
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Component({
   selector: 'login-root',
@@ -17,16 +18,21 @@ export class LoginComponent {
   
   constructor(private loginService: LoginService, private appComponent: AppComponent,private router: Router){
     localStorage.clear();
+    Cookie.deleteAll();
   }
   onLogin() {
     this.loginService.loginUser(this.model).subscribe((result) => {
       if (result.status === AppSettings.SUCCESS_STATUS) {
         this.appComponent.error = '';
         if(result.role === "USER"){
+          Cookie.set(AppSettings.AUTH_TOKEN_KEY, result.token, 1);
+          Cookie.set(AppSettings.ROLE_KEY, result.role, 1);
+          Cookie.set('userId', result.userId, 1);
           //localStorage.setItem('currentUser', JSON.stringify({ userId: result.userId, token: result.token }));
-          localStorage.setItem(AppSettings.AUTH_TOKEN_KEY, result.token);
-          localStorage.setItem(AppSettings.ROLE_KEY, result.role);
-          localStorage.setItem("userId", result.userId);
+          
+          //localStorage.setItem(AppSettings.AUTH_TOKEN_KEY, result.token);
+          //localStorage.setItem(AppSettings.ROLE_KEY, result.role);
+          //localStorage.setItem("userId", result.userId);
           this.router.navigate(['usermain']);
         }else if(result.role === "ADMIN"){
           this.router.navigate(['adminmain']);
