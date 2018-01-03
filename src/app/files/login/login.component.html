@@ -1,4 +1,4 @@
-<div class="container login_background">
+<!-- <div class="container login_background">
 	<div class="top">
 		<h1 id="title" class="hidden">
 			<span id="logo">Daily <span>UI</span></span>
@@ -48,4 +48,40 @@
 	$('#password').blur(function() {
 		$('label[for="password"]').removeClass('selected');
 	});
-</script>
+</script> -->
+
+<section id="form">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="login-form">
+					<h2>Login to your account</h2>
+					<form (ngSubmit)="f.form.valid && onLogin()" #f="ngForm" novalidate>
+						<input type="text" name="userName" [(ngModel)]="model.userName" #userName="ngModel" required="required" placeholder="Name" />
+						<input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required="required" placeholder="password" />
+						<span>
+							<input type="checkbox" class="checkbox"> 
+							Keep me signed in
+						</span>
+						<button type="submit" class="btn btn-default">Login</button>
+						<div *ngIf="loginfailed===true">Username or Password is wrong</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="col-sm-1">
+				<h2 class="or">OR</h2>
+			</div> -->
+			<!-- <div class="col-sm-4">
+				<div class="signup-form">
+					<h2>New User Signup!</h2>
+					<form action="#">
+						<input type="text" placeholder="Name"/>
+						<input type="email" placeholder="Email Address"/>
+						<input type="password" placeholder="Password"/>
+						<button type="submit" class="btn btn-default">Signup</button>
+					</form>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</section><!--/form-->

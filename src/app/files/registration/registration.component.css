@@ -1,12 +1,11 @@
-.login_background {
-	background: url("../../../images/photo_bg.jpg") no-repeat center center fixed;
+/* .login_background {
+	
 	background-size: cover;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	margin: 0;
 	color: #666;
-	/* height: -webkit-fill-available; */
 	height: 100%;
 }
 
@@ -86,4 +85,4 @@
 .image{
 	height: 100px;
 	width: 100px;
-}
+} */

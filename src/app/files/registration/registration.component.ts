@@ -13,12 +13,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  url: any;
+  url: any = "./../../assets/images/profilepic.jpeg";
   title = 'Java';
   registrationForm: FormGroup;
   model: any = {};
   loading = false;
-
+ // fileInput: any;
 
   minDate = new Date(1900, 5, 10);
   maxDate = new Date(2018, 9, 15);
@@ -55,6 +55,7 @@ export class RegistrationComponent {
     private router: Router, private webService: WebService) {
     this.loading = true;
     this.model.gender = "male";
+   // let fileInput: HTMLElement = document.getElementsByClassName('my_fileUrl')[0] as HTMLElement;
   }
   onSubmit() {
     this.model.profile = this.url;
@@ -69,5 +70,8 @@ export class RegistrationComponent {
       }
       //        this.registrationForm.submitted = false;
     });
+  }
+  clickFile(fileInput:Element){
+    //fileInput.click();   
   }
 }

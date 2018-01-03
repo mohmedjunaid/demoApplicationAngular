@@ -15,7 +15,7 @@ export class LoginComponent {
   title = 'Java';
   loginForm: FormGroup;
   model: any = {};
-  
+  loginfailed=false;
   constructor(private loginService: LoginService, private appComponent: AppComponent,private router: Router){
     localStorage.clear();
     Cookie.deleteAll();
@@ -36,6 +36,7 @@ export class LoginComponent {
         }
         
       } else {
+       this.loginfailed=true;
         this.router.navigate(['login']);
         this.appComponent.error = AppSettings.getHtmlMessages(result.messages);
       }
