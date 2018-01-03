@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
             // logged in so return true
           //  return true;
         //}
+        //window.location.reload();
         let myCookie = Cookie.get(AppSettings.AUTH_TOKEN_KEY);
         if(myCookie){
             return true;

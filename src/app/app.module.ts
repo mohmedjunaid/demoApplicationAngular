@@ -13,11 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { UserMainComponent } from './files/user/usermain.component';
 import { AdminMainComponent } from './files/admin/adminmain.component';
-import { UserDashBoardComponent } from './files/user/dashboard/dashboard.component';
+import { UserDashBoardComponent } from './files/dashboard/dashboard.component';
 import { AuthGuard } from './security/auth.guard';
 import { from } from 'rxjs/observable/from';
 const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: UserDashBoardComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent},
   { path: 'usermain', component: UserMainComponent,  

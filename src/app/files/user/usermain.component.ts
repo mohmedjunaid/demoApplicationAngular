@@ -19,7 +19,7 @@ export class UserMainComponent {
      logout(){
          localStorage.clear();
          Cookie.deleteAll();
-         this.router.navigate(['login']);
+         this.router.navigate(['']);
      }   
    
   }

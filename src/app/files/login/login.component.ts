@@ -28,13 +28,10 @@ export class LoginComponent {
           Cookie.set(AppSettings.AUTH_TOKEN_KEY, result.token, 1);
           Cookie.set(AppSettings.ROLE_KEY, result.role, 1);
           Cookie.set('userId', result.userId, 1);
-          //localStorage.setItem('currentUser', JSON.stringify({ userId: result.userId, token: result.token }));
-          
-          //localStorage.setItem(AppSettings.AUTH_TOKEN_KEY, result.token);
-          //localStorage.setItem(AppSettings.ROLE_KEY, result.role);
-          //localStorage.setItem("userId", result.userId);
+          window.location.reload();
           this.router.navigate(['usermain']);
         }else if(result.role === "ADMIN"){
+          window.location.reload();
           this.router.navigate(['adminmain']);
         }
         

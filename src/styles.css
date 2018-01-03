@@ -2,13 +2,11 @@
 
 
 body {
-	/* background: url("./images/photo_bg.jpg") no-repeat center center fixed; */
 	background-size: cover;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	margin: -19px;
-	color: #666;
+  color: #666;
 } 
 
 /* Typography */
