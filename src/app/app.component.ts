@@ -31,5 +31,6 @@ login(){
 onSearchChange(searchValue : string ) {  
   console.log(searchValue);
   localStorage.setItem("searchItem",searchValue);
+  window.location.reload();
 }
 }

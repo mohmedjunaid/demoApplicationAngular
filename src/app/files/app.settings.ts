@@ -1,6 +1,6 @@
 export class AppSettings {
     
-    public static get API_ENDPOINT() : String { return 'http://localhost:8080/api'; }
+    public static get API_ENDPOINT() : String { return 'http://10.2.4.196:8080/api'; }
     public static get SUCCESS_STATUS() : String { return 'SUCCESS'; }
     public static get ROLE_ADMIN() : String { return  'ADMIN'; }
     public static get SUPER_ADMIN() : string { return 'Super Admin'; }
