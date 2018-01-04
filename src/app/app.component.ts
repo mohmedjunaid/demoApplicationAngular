@@ -28,4 +28,8 @@ login(){
   window.location.reload();
   this.router.navigate(['login']);
 }
+onSearchChange(searchValue : string ) {  
+  console.log(searchValue);
+  localStorage.setItem("searchItem",searchValue);
+}
 }

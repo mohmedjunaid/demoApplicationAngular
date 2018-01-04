@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http,Headers,RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 import 'rxjs/Rx';
 @Injectable()
 export class WebService {
@@ -18,6 +19,7 @@ export class WebService {
 
   getRequest(serviceName, params) {
     let options = new RequestOptions({ headers: this.getWebServiceHeaders(), search: params });
+    
     return this.http.get(this.getWebServiceUrl(serviceName), options)
       .map(res => res.json())
       .catch(error => this.onWebServiceError(error));
@@ -36,14 +38,13 @@ export class WebService {
 
   private getWebServiceHeaders() {
     const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+   // headers.append('Content-Type', 'application/json');
     
   // headers.append('Access-Control-Allow-Origin', '*');
-//    const authToken = localStorage.getItem(AppSettings.AUTH_TOKEN_KEY);
-//    alert(authToken);
-//    if(authToken){
-//      headers.append('Authorization', `Bearer ${authToken}`);
-//    }
+    const authToken = Cookie.get(AppSettings.AUTH_TOKEN_KEY);
+    if(authToken){
+      headers.append('Authorization', `Bearer ${authToken}`);
+    }
     return headers;
   }
 
