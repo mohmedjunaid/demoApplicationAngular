@@ -1431,7 +1431,12 @@ h2.title {
   margin-top: 185px;
   overflow: hidden;
 }
-
+#form1 {
+  display: block;
+  margin-bottom: 185px;
+  margin-top: 70px;
+  overflow: hidden;
+}
 .login-form {
 
 }
