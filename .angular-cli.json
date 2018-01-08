@@ -20,17 +20,17 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/css/animate.css",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/css/price-range.css",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/css/main.css",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/css/responsive.css"
+        "css/animate.css",
+        "css/price-range.css",
+        "css/main.css",
+        "css/responsive.css"
       ],
       "scripts": [
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/js/jquery.scrollUp.min.js",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/js/price-range.js",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/js/jquery.prettyPhoto.js",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/js/main.js",
-        "/home/indianic/EclipseWorkspace/angular/eclipseDemo/src/js/jquery.prettyPhoto.js"
+        "js/jquery.scrollUp.min.js",
+        "js/price-range.js",
+        "js/jquery.prettyPhoto.js",
+        "js/main.js",
+        "js/jquery.prettyPhoto.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

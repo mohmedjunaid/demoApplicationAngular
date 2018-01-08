@@ -16,13 +16,21 @@ import { AdminMainComponent } from './files/admin/adminmain.component';
 import { UserDashBoardComponent } from './files/dashboard/dashboard.component';
 import { AuthGuard } from './security/auth.guard';
 import { from } from 'rxjs/observable/from';
+import { ProductDetailsComponent } from './files/productdetails/productdetails.component';
+import { AppService } from './files/service/appservice.service';
+
 const appRoutes: Routes = [
-  { path: '', component: UserDashBoardComponent },
+  { path: '', component: UserMainComponent ,
+    children: [
+    { path: '', component: UserDashBoardComponent},
+    { path: 'product-details', component: ProductDetailsComponent}
+    ]},
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent},
   { path: 'usermain', component: UserMainComponent,  
     children: [
-      { path: '', component: UserDashBoardComponent,canActivate: [AuthGuard]}
+      { path: '', component: UserDashBoardComponent,canActivate: [AuthGuard]},
+      { path: 'product-details', component: ProductDetailsComponent,canActivate: [AuthGuard]}
   ]},
   { path: 'adminmain', component: AdminMainComponent}
 ];
@@ -34,7 +42,8 @@ const appRoutes: Routes = [
     LoginComponent,
     UserMainComponent,
     AdminMainComponent,
-    UserDashBoardComponent
+    UserDashBoardComponent,
+    ProductDetailsComponent
   ],
   imports: [
     ImageUploadModule.forRoot(),
@@ -46,7 +55,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [RegistrationService,WebService, LoginService, AuthGuard],
+  providers: [RegistrationService,WebService, LoginService, AuthGuard, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,7 +38,7 @@ export class WebService {
 
   private getWebServiceHeaders() {
     const headers = new Headers();
-   // headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/json');
     
   // headers.append('Access-Control-Allow-Origin', '*');
     const authToken = Cookie.get(AppSettings.AUTH_TOKEN_KEY);
