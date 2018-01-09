@@ -1,0 +1,19 @@
+<section id="form">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="login-form">
+					<h2>verify your account</h2>
+					<form (ngSubmit)="f.form.valid && onVerification()" #f="ngForm" novalidate>
+						<input type="hidden" name="email" [(ngModel)]="model.email" #email="ngModel" required="required"/>
+                        <label for="email">{{model.email}}</label>
+                        <input type="password" name="otp" [(ngModel)]="model.otp" #otp="ngModel" required="required" placeholder="otp" />
+						
+						<button type="submit" class="btn btn-default">Verify</button>
+						<div *ngIf="verificationfailed===true">Otp is not matched or expired</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -6,6 +6,7 @@ import {RegistrationService} from './registration.service';
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import { VerificationService } from '../service/verification.service';
 
 @Component({
   selector: 'registration-component',
@@ -52,7 +53,7 @@ export class RegistrationComponent {
     }
   }
   constructor(private registrationService: RegistrationService, private appComponent: AppComponent,
-    private router: Router, private webService: WebService) {
+    private router: Router, private webService: WebService, private verificationService : VerificationService) {
     this.loading = true;
     this.model.gender = "male";
    // let fileInput: HTMLElement = document.getElementsByClassName('my_fileUrl')[0] as HTMLElement;
@@ -61,9 +62,10 @@ export class RegistrationComponent {
     this.model.profile = this.url;
     this.webService.postRequest('registration', this.model).subscribe((result) => {
       if (result.status === AppSettings.SUCCESS_STATUS) {
-        console.log(result);
         this.appComponent.error = '';
-        this.router.navigate(['login']);
+        alert(result.email);
+        this.verificationService.setEmail(result.email);
+        this.router.navigate(['verification']);
       } else {
         alert(result.messages);
         this.appComponent.error = AppSettings.getHtmlMessages(result.messages);

@@ -18,6 +18,11 @@ import { AuthGuard } from './security/auth.guard';
 import { from } from 'rxjs/observable/from';
 import { ProductDetailsComponent } from './files/productdetails/productdetails.component';
 import { AppService } from './files/service/appservice.service';
+import { VerificationService } from './files/service/verification.service';
+import { VerificationComponent } from './files/verification/verification.component';
+import { VerificationApiService } from './files/verification/verificationapi.service';
+
+
 
 const appRoutes: Routes = [
   { path: '', component: UserMainComponent ,
@@ -26,6 +31,7 @@ const appRoutes: Routes = [
     { path: 'product-details', component: ProductDetailsComponent}
     ]},
   { path: 'registration', component: RegistrationComponent },
+  { path: 'verification', component: VerificationComponent },
   { path: 'login', component: LoginComponent},
   { path: 'usermain', component: UserMainComponent,  
     children: [
@@ -43,7 +49,8 @@ const appRoutes: Routes = [
     UserMainComponent,
     AdminMainComponent,
     UserDashBoardComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    VerificationComponent
   ],
   imports: [
     ImageUploadModule.forRoot(),
@@ -55,7 +62,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [RegistrationService,WebService, LoginService, AuthGuard, AppService],
+  providers: [RegistrationService,WebService, LoginService, AuthGuard, AppService,VerificationService, VerificationApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
