@@ -16,8 +16,9 @@ export class LoginComponent {
   title = 'Java';
   loginForm: FormGroup;
   model: any = {};
-  loginfailed=false;
-  constructor(private loginService: LoginService, private appComponent: AppComponent,private router: Router, private verificationService : VerificationService){
+  message: String;
+  loginfailed = false;
+  constructor(private loginService: LoginService, private appComponent: AppComponent, private router: Router, private verificationService: VerificationService) {
     localStorage.clear();
     Cookie.deleteAll();
   }
@@ -25,27 +26,26 @@ export class LoginComponent {
     this.loginService.loginUser(this.model).subscribe((result) => {
       if (result.status === AppSettings.SUCCESS_STATUS) {
         this.appComponent.error = '';
-        if(result.role === "USER"){
-       
+        if (result.role === "USER") {
           Cookie.set(AppSettings.AUTH_TOKEN_KEY, result.token, 1);
           Cookie.set(AppSettings.ROLE_KEY, result.role, 1);
           Cookie.set('userId', result.userId, 1);
-          
-          if(result.active===true){
+          if (result.active === true) {
             window.location.reload();
             this.router.navigate(['usermain']);
-          }else if(result.active===false){
+          } else if (result.active === false && result.emailSent === true) {
             this.verificationService.setEmail(result.email);
             this.router.navigate(['verification']);
+          } else {
+            alert(JSON.stringify(result.messages[0]));
           }
-          
-        }else if(result.role === "ADMIN"){
+        } else if (result.role === "ADMIN") {
           window.location.reload();
           this.router.navigate(['adminmain']);
         }
-        
       } else {
-       this.loginfailed=true;
+        this.loginfailed = true;
+
         this.router.navigate(['login']);
         this.appComponent.error = AppSettings.getHtmlMessages(result.messages);
       }

@@ -3,6 +3,7 @@
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-4">
 				<div class="login-form">
+						{{countDown | async}}
 					<h2>verify your account</h2>
 					<form (ngSubmit)="f.form.valid && onVerification()" #f="ngForm" novalidate>
 						<input type="hidden" name="email" [(ngModel)]="model.email" #email="ngModel" required="required"/>
