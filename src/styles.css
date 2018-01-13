@@ -1,0 +1,8 @@
+.align{
+    width: 103%;
+}
+@media only screen and (max-width: 500px) {
+    .align{
+        width: 100%;
+    }
+}

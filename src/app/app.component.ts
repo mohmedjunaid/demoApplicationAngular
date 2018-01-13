@@ -10,27 +10,27 @@ import { AppSettings } from './files/app.settings';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public error : string = '';
+  public error: string = '';
   title = 'Java';
   myCookie = Cookie.get(AppSettings.AUTH_TOKEN_KEY);
- 
-  constructor(private router: Router){
+
+  constructor(private router: Router) {
     console.log("called");
 
-}
-  logout(){
+  }
+  logout() {
     window.location.reload();
     localStorage.clear();
     Cookie.deleteAll();
     this.router.navigate(['']);
-}  
-login(){
-  window.location.reload();
-  this.router.navigate(['login']);
-}
-onSearchChange(searchValue : string ) {  
-  console.log(searchValue);
-  localStorage.setItem("searchItem",searchValue);
-  window.location.reload();
-}
+  }
+  login() {
+    window.location.reload();
+    this.router.navigate(['login']);
+  }
+  onSearchChange(searchValue: string) {
+    console.log(searchValue);
+    localStorage.setItem("searchItem", searchValue);
+    window.location.reload();
+  }
 }

@@ -11,4 +11,7 @@ export class VerificationApiService {
   verifyUser(verificaion){
     return this.webService.postRequest('verification',verificaion);
   }
+  reSendOtp(email){
+    return this.webService.getRequest('resendOtp',"email=" +email);
+  }
 }

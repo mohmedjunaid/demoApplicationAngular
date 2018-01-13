@@ -1,54 +1,3 @@
-<!-- <div class="container animated fadeInUp">      
-    <nav class="navbar navbar-inverse animated fadeInUp">
-              <div class="navbar-header">
-                  <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a routerLink="/usermain" class="navbar-brand">Demo App</a>
-              </div>
-              <div id="navbarCollapse" class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav">
-                      <li class="active"><a routerLink="/usermain">Home</a></li>
-                      <li class="dropdown">
-                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Categoies <b class="caret"></b></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="#">Men</a></li>
-                              <li><a href="#">Women</a></li>
-                              <li><a href="#">Children</a></li>
-                          </ul>
-                        </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                      <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <span class="input-group-btn">
-                              <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                          </span>
-                      </div>
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                      <li class="dropdown">
-                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Profile <b class="caret"></b></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="#">Messages</a></li>
-                              <li><a href="#">My Account</a></li>
-                              <li><a href="#">Cart</a></li>
-                              <li><a href="#">WishList</a></li>
-                              <li><a href="#">History</a></li>
-                              <li class="divider"></li>
-                              <li><a href="#">Trash</a></li>
-                          </ul>
-                      </li>
-                      <li *ngIf="myCookie!==null"><a (click)="logout()">Logout</a></li>
-                      <li *ngIf="myCookie===null"><a (click)="login()">Login</a></li>
-                  </ul>
-              </div>
-          </nav>
-          <router-outlet></router-outlet>
-  </div> -->
 <header id="header">
     <div class="header_top">
         <div class="container">
@@ -70,11 +19,31 @@
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-dribbble"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,8 +57,8 @@
                 <div class="col-sm-4">
                     <div class="logo pull-left">
                         <a href="index.html">
-                             <img src="./assets/images/home/logo.png" alt="" />
-                        
+                            <img src="./assets/images/home/logo.png" alt="" />
+
                         </a>
                     </div>
                     <div class="btn-group pull-right">
@@ -143,7 +112,6 @@
                                 <a href="cart.html">
                                     <i class="fa fa-shopping-cart"></i> Cart</a>
                             </li>
-                            <!-- <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li> -->
                             <li *ngIf="myCookie!==null">
                                 <a (click)="logout()">
                                     <i class="fa fa-lock"></i>Logout</a>
@@ -158,10 +126,8 @@
             </div>
         </div>
     </div>
-    <!--/header-middle-->
 
     <div class="header-bottom">
-        <!--header-bottom-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
@@ -224,7 +190,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" class="form-control" placeholder="Search" (blur)="onSearchChange($event.target.value)"/>
+                        <input type="text" class="form-control" placeholder="Search" (blur)="onSearchChange($event.target.value)" />
                     </div>
                 </div>
             </div>
@@ -232,13 +198,14 @@
     </div>
 </header>
 <router-outlet></router-outlet>
-<footer id="footer"><!--Footer-->
+<footer id="footer">
     <div class="footer-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
-                        <h2><span>e</span>-shopper</h2>
+                        <h2>
+                            <span>e</span>-shopper</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
                     </div>
                 </div>
@@ -257,7 +224,7 @@
                             <h2>24 DEC 2014</h2>
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
                             <a href="#">
@@ -272,7 +239,7 @@
                             <h2>24 DEC 2014</h2>
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
                             <a href="#">
@@ -287,7 +254,7 @@
                             <h2>24 DEC 2014</h2>
                         </div>
                     </div>
-                    
+
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
                             <a href="#">
@@ -312,7 +279,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="footer-widget">
         <div class="container">
             <div class="row">
@@ -320,11 +287,21 @@
                     <div class="single-widget">
                         <h2>Service</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Change Location</a></li>
-                            <li><a href="#">FAQ’s</a></li>
+                            <li>
+                                <a href="#">Online Help</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Order Status</a>
+                            </li>
+                            <li>
+                                <a href="#">Change Location</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ’s</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -332,11 +309,21 @@
                     <div class="single-widget">
                         <h2>Quock Shop</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
+                            <li>
+                                <a href="#">T-Shirt</a>
+                            </li>
+                            <li>
+                                <a href="#">Mens</a>
+                            </li>
+                            <li>
+                                <a href="#">Womens</a>
+                            </li>
+                            <li>
+                                <a href="#">Gift Cards</a>
+                            </li>
+                            <li>
+                                <a href="#">Shoes</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -344,11 +331,21 @@
                     <div class="single-widget">
                         <h2>Policies</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privecy Policy</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Billing System</a></li>
-                            <li><a href="#">Ticket System</a></li>
+                            <li>
+                                <a href="#">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="#">Privecy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">Refund Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">Billing System</a>
+                            </li>
+                            <li>
+                                <a href="#">Ticket System</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -356,11 +353,21 @@
                     <div class="single-widget">
                         <h2>About Shopper</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
+                            <li>
+                                <a href="#">Company Information</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Store Location</a>
+                            </li>
+                            <li>
+                                <a href="#">Affillate Program</a>
+                            </li>
+                            <li>
+                                <a href="#">Copyright</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -369,23 +376,30 @@
                         <h2>About Shopper</h2>
                         <form action="#" class="searchform">
                             <input type="text" placeholder="Your email address" />
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                            <p>Get the most recent updates from <br />our site and be updated your self...</p>
+                            <button type="submit" class="btn btn-default">
+                                <i class="fa fa-arrow-circle-o-right"></i>
+                            </button>
+                            <p>Get the most recent updates from
+                                <br />our site and be updated your self...</p>
                         </form>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    
+
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
                 <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                <p class="pull-right">Designed by
+                    <span>
+                        <a target="_blank" href="http://www.themeum.com">Themeum</a>
+                    </span>
+                </p>
             </div>
         </div>
     </div>
-    
+
 </footer>

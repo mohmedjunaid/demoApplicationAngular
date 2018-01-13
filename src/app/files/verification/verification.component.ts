@@ -17,18 +17,39 @@ export class VerificationComponent {
     loading = false;
     model: any = {};
     countDown;
-    counter = 5;
-
+   // counter = 300;
+    seconds = 60;
+    minutes = 4;
+    flag=false;
+    verificationfailed;
+    otpExpired;
     constructor(private appComponent: AppComponent, private router: Router, private webService: WebService, private verificationService: VerificationService, private verificationApiService: VerificationApiService) {
         this.loading = true;
         this.model.email = verificationService.getEmail();
-        this.countDown = Observable.timer(0, 1000).take(this.counter).map(() => --this.counter);
-        //Observable.timer(0, 1000).takeWhile(() => true).subscribe(() => this.func());
-
-
+        this.timerFunc();
+    }
+    timerFunc(){
+       // this.countDown = Observable.timer(0, 1000).take(this.counter).map(() => --this.counter);
+        Observable.timer(0, 1000).takeWhile(() => true).subscribe(() => this.func());
     }
     func(){
-alert("fv");
+        
+        // if(this.counter===0 && this.flag===false){
+        //     this.flag=true;
+        //     this.model.otp=null;
+        //     this.otpExpired=true;        
+        // }
+
+        if(this.seconds === 0 && this.minutes >= 1){   
+            this.seconds = 60;           
+            this.minutes--;          
+        }else if(this.seconds > 0){
+            this.seconds--;
+        }else if(this.seconds === 0 && this.minutes === 0){
+            this.flag=true;
+            this.model.otp=null;
+            this.otpExpired=true;     
+        }
     }
     onVerification() {
         this.verificationApiService.verifyUser(this.model).subscribe((result) => {
@@ -38,6 +59,20 @@ alert("fv");
                     this.router.navigate(['usermain']);
                 } else {
                     this.router.navigate(['login']);
+                }
+            } else {
+            }
+        });
+    }
+    resendOtp(){
+        this.verificationApiService.reSendOtp(this.model.email).subscribe((result) => {
+            if (result.status === AppSettings.SUCCESS_STATUS) {
+                if (result.verified === true) {
+                   this.seconds=5;
+                   this.minutes = 4;
+                   this.timerFunc();
+                } else {
+                   
                 }
             } else {
             }
