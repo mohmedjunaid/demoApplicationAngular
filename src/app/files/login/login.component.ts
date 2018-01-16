@@ -26,7 +26,7 @@ export class LoginComponent {
     this.loginService.loginUser(this.model).subscribe((result) => {
       if (result.status === AppSettings.SUCCESS_STATUS) {
         this.appComponent.error = '';
-        if (result.role === "USER") {
+        // if (result.role === "USER") {
           Cookie.set(AppSettings.AUTH_TOKEN_KEY, result.token, 1);
           Cookie.set(AppSettings.ROLE_KEY, result.role, 1);
           Cookie.set('userId', result.userId, 1);
@@ -39,10 +39,10 @@ export class LoginComponent {
           } else {
             alert(JSON.stringify(result.messages[0]));
           }
-        } else if (result.role === "ADMIN") {
-          window.location.reload();
-          this.router.navigate(['adminmain']);
-        }
+        // } else if (result.role === "ADMIN") {
+        //   window.location.reload();
+        //   this.router.navigate(['adminmain']);
+        // }
       } else {
         this.loginfailed = true;
 

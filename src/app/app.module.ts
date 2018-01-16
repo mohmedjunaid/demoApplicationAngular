@@ -21,23 +21,26 @@ import { AppService } from './files/service/appservice.service';
 import { VerificationService } from './files/service/verification.service';
 import { VerificationComponent } from './files/verification/verification.component';
 import { VerificationApiService } from './files/verification/verificationapi.service';
+import { UserHeaderFooterComponent } from './files/userheaderfooter/userheaderfooter.component';
 
 
 
 const appRoutes: Routes = [
-  { path: '', component: UserMainComponent ,
-    children: [
-    { path: '', component: UserDashBoardComponent},
-    { path: 'product-details', component: ProductDetailsComponent}
-    ]},
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'verification', component: VerificationComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'usermain', component: UserMainComponent,  
-    children: [
-      { path: '', component: UserDashBoardComponent,canActivate: [AuthGuard]},
-      { path: 'product-details', component: ProductDetailsComponent,canActivate: [AuthGuard]}
+  { path: '', component: UserHeaderFooterComponent , 
+    children: [ 
+      { path: '', component: UserMainComponent, 
+        children:[ 
+          { path:'', component: UserDashBoardComponent} 
+        ]}, { path: 'product-details', component: ProductDetailsComponent},
+        { path: 'login', component: LoginComponent},
+        { path: 'verification', component: VerificationComponent },
+        { path: 'registration', component: RegistrationComponent },
+        { path: 'usermain', component: UserMainComponent,  
+          children: [
+            { path: '', component: UserDashBoardComponent,canActivate: [AuthGuard]},
+            { path: 'product-details', component: ProductDetailsComponent,canActivate: [AuthGuard]}
   ]},
+      ]},
   { path: 'adminmain', component: AdminMainComponent}
 ];
 
@@ -50,7 +53,8 @@ const appRoutes: Routes = [
     AdminMainComponent,
     UserDashBoardComponent,
     ProductDetailsComponent,
-    VerificationComponent
+    VerificationComponent,
+    UserHeaderFooterComponent
   ],
   imports: [
     ImageUploadModule.forRoot(),
